@@ -23,6 +23,15 @@ public class CurrencyExchangeController {
         if(currencyExchange ==null) {
             throw new RuntimeException("Unable to Find data for " + from + " to " + to);
         }
+
+        //slow execution
+        try {
+            Thread.currentThread().sleep(70);
+        } catch (InterruptedException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+
         String port = environment.getProperty("local.server.port");
         currencyExchange.setEnvironment(port);
         return currencyExchange;
